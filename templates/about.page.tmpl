@@ -1,0 +1,27 @@
+{{ template "base" . }}
+
+{{ define "title" }}
+    <title>About</title>
+{{ end }}
+
+{{ define "content" }}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1>This is the about page</h1>
+                <p>This is about text</p>
+                <p>new line</p>
+
+                <p>this came from the template: {{ index .StringMap "test" }}</p>
+
+                <p>
+                    {{ if ne (index .StringMap "remote_ip") "" }}
+                        Your Remote IP Address : {{ index .StringMap "remote_ip" }}
+                    {{ else }}
+                        Can't find Remote IP Address, visit the <a href="/">Home Page</a> first to get the IP Address in About Page.    
+                    {{ end }}
+                </p>
+            </div>
+        </div>
+    </div>
+{{ end }}
